@@ -14,9 +14,9 @@ router.get('/autor', function(req, res) {
 res.render('autor');
 });
 
-+// Definición de rutas de /quizes
-+router.get('/quizes',                      quizController.index);
-+router.get('/quizes/:quizId(\\d+)',        quizController.show);
-+router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
+// Definición de rutas de /quizes
+router.get('/quizes',                      quizController.index);
+router.get('/quizes/:quizId(\\d+)',        quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 
 module.exports = router;
