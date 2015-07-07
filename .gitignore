@@ -28,6 +28,7 @@ node_modules
 npm-debug.log
 quiz.sqlite
 public/media 
+.env
 .DS_Store
 .AppleDouble
 .LSOverride
