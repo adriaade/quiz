@@ -18,10 +18,10 @@ exports.load = function (req, res, next, quizId) {
 
 // GET /quizes
 exports.index = function (req, res) {
-	var miBusqueda = '%' + req.query.busqueda + '%';
-	miBusqueda.replace(/ /g, '%');
+	var tempBusca = '%' + req.query.busqueda + '%';
+	tempBusca.replace(/ /g, '%');
 	models.Quiz.findAll({
-		where: ['pregunta like ?', miBusqueda]
+		where: ['pregunta like ?', tempBusca]
 	}).then(function (quizes) {
 		res.render('quizes/index', {
 			quizes: quizes
