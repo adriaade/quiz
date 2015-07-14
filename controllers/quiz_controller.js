@@ -25,7 +25,8 @@ exports.index = function (req, res) {
 		order: "pregunta"
 	}).then(function (quizes) {
 		res.render('quizes/index', {
-			quizes: quizes
+			quizes: quizes,
+			errors: []
 		});
 	}).catch(function (error) {
 		next(error);
