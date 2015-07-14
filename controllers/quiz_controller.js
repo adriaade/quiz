@@ -21,7 +21,8 @@ exports.index = function (req, res) {
 	var tempBusca = '%' + req.query.busqueda + '%';
 	tempBusca.replace(/ /g, '%');
 	models.Quiz.findAll({
-		where: ['pregunta like ?', tempBusca]
+		where: ['pregunta like ?', tempBusca],
+		order: "pregunta"
 	}).then(function (quizes) {
 		res.render('quizes/index', {
 			quizes: quizes
