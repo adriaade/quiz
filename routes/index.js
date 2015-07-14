@@ -12,7 +12,9 @@ router.get('/', function (req, res) {
 });
 
 router.get('/autor', function (req, res) {
-	res.render('autor');
+	res.render('autor', {
+		errors: []
+	});
 });
 
 // Autoload de comandos con :quizId
