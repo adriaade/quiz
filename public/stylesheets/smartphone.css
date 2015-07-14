@@ -7,7 +7,8 @@ body {
 }
 
 h2 span,
-section h3 {
+section h3,
+label.rem {
 	display: none;
 }
 
@@ -15,7 +16,11 @@ body {
 	font-size: xx-large;
 }
 
-footer,
-input {
+input,
+button {
+	font-size: x-large;
+}
+
+footer {
 	font-size: large;
 }
