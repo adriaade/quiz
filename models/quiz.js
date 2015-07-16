@@ -25,7 +25,8 @@ module.exports = function (sequelize, DataTypes) {
 					notEmpty: {
 						msg: "-> Falta tema"
 					}
-				}
+				},
+				defaultValue: "Otro"
 			}
 		}
 	);
