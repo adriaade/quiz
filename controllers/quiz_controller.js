@@ -18,19 +18,29 @@ exports.load = function (req, res, next, quizId) {
 
 // GET /quizes
 exports.index = function (req, res) {
-	var tempBusca = '%' + req.query.busqueda + '%';
-	tempBusca.replace(/ /g, '%');
-	models.Quiz.findAll({
-		where: ['pregunta like ?', tempBusca],
-		order: "pregunta"
-	}).then(function (quizes) {
-		res.render('quizes/index.ejs', {
-			quizes: quizes,
-			errors: []
+	if (req.query.busqueda !== undefined) {
+		var tempBusca = '%' + req.query.busqueda + '%';
+		tempBusca.replace(/ /g, '%');
+		models.Quiz.findAll({
+			where: ['pregunta like ?', tempBusca],
+			order: "pregunta"
+		}).then(function (quizes) {
+			res.render('quizes/index.ejs', {
+				quizes: quizes,
+				errors: []
+			});
+		}).catch(function (error) {
+			next(error);
 		});
-	}).catch(function (error) {
-		next(error);
-	})
+	} else {
+		models.Quiz.findAll().then(function (quizes) {
+			res.render('quizes/index.ejs', {
+				quizes: quizes
+			});
+		}).catch(function (error) {
+			next(error);
+		});
+	}
 };
 
 // GET /quizes/:id
