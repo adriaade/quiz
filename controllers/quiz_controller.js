@@ -24,7 +24,7 @@ exports.index = function (req, res) {
 		where: ['pregunta like ?', tempBusca],
 		order: "pregunta"
 	}).then(function (quizes) {
-		res.render('quizes/index.ejs', {
+		res.render('quizes/index', {
 			quizes: quizes,
 			errors: []
 		});
