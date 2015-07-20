@@ -8,11 +8,11 @@
 		<tr>
 			<td>
 				<a href="quizes/<%= quizes[i].id %>">
-					<%=q uizes[i].pregunta %>
+					<%=quizes[i].pregunta %>
 				</a>
 			</td>
 			<td> ***
-				<%=q uizes[i].tema %> *** </td>
+				<%=quizes[i].tema %> *** </td>
 			<%if(session.user){%>
 				<td>
 					<a href="quizes/<%= quizes[i].id %>/edit">
