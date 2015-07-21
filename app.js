@@ -43,6 +43,19 @@ app.use(function (req, res, next) {
 	next();
 });
 
+// Auto Logout
+app.use(function (req, res, next) {
+	if (req.session.user) {
+		req.session.anterior = req.session.ara ? req.session.ara : Date.now();
+		req.session.ara = Date.now();
+		var seconds = (req.session.ara - req.session.anterior) / 1000;
+		if (seconds > 120) {
+			delete req.session.user;
+		}
+	}
+	next();
+});
+
 app.use('/', routes);
 // app.use('/users', users);
 
